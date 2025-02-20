@@ -80,7 +80,7 @@ Contributions and feedback are welcome! Feel free to fork the repository, open i
 
 ## License
 
-*Specify your license here (e.g., MIT License) if applicable.*
+This project is licensed under the MIT License. See the LICENSE file for details.
 
 ---
 
