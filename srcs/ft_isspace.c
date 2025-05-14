@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/pipex.h"
-
 /**
  * @brief Checks if a character is a standard ASCII whitespace character.
  *
