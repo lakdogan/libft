@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/pipex.h"
+#include "./../inc/libft.h"
 
 /**
  * @brief Duplicates up to n characters from the given string.
