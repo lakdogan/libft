@@ -48,6 +48,7 @@ void				ft_putendl_fd(char *s, int fd);
 float				ft_getdif(float no1, float no2);
 float				ft_isometric_x(float x, float y);
 char				*ft_strchr(const char *s, int c);
+double				ft_sqrt(double x, double epsilon);
 char				*ft_strrchr(const char *s, int c);
 float				ft_dot_product(float *a, float *b);
 char				**ft_split(char const *s, char del);
