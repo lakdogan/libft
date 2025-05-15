@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./../../inc/push_swap.h"
+#include "./../inc/libft.h"
 
 /**
  * @brief Computes the square root of a non‑negative double.
