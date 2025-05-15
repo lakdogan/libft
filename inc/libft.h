@@ -37,6 +37,7 @@ int				ft_isspace(int c);
 char				*ft_itoa(int number);
 float				ft_magnitude(float *a);
 float				ft_getrad(float degree);
+long 				ft_atol(const char *str);
 int				ft_atoi(const char *str);
 size_t				ft_strlen(const char *s);
 float				ft_getdeg(float radians);
