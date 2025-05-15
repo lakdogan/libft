@@ -88,7 +88,9 @@ LIBFT_CFILES := \
 	ft_vector_angle_deg.c \
 	ft_vector_angle_rad.c \
 	ft_isspace.c \
-	ft_strndup.c
+	ft_strndup.c \
+	ft_sqrt.c \
+	ft_strtoll.c
 
 FT_PRINTF_CFILES := \
 	/ft_printf.c \
