@@ -6,7 +6,7 @@
 /*   By: lakdogan <lakdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:59:19 by lakdogan          #+#    #+#             */
-/*   Updated: 2025/02/20 18:15:04 by lakdogan         ###   ########.fr       */
+/*   Updated: 2025/05/15 21:43:47 by lakdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,19 @@
 # include <string.h>
 # include <unistd.h>
 
-int				ft_isalnum(int c);
-int				ft_isalpha(int c);
-int				ft_isascii(int c);
-int				ft_isdigit(int c);
-int				ft_isprint(int c);
-int				ft_toupper(int c);
-int				ft_tolower(int c);
-int				ft_isspace(int c);
+int					ft_isalnum(int c);
+int					ft_isalpha(int c);
+int					ft_isascii(int c);
+int					ft_isdigit(int c);
+int					ft_isprint(int c);
+int					ft_toupper(int c);
+int					ft_tolower(int c);
+int					ft_isspace(int c);
 char				*ft_itoa(int number);
 float				ft_magnitude(float *a);
 float				ft_getrad(float degree);
-long 				ft_atol(const char *str);
-int				ft_atoi(const char *str);
+long				ft_atol(const char *str);
+int					ft_atoi(const char *str);
 size_t				ft_strlen(const char *s);
 float				ft_getdeg(float radians);
 char				*ft_strdup(const char *s1);
@@ -66,9 +66,9 @@ char				*ft_strjoin(char const *s1, char const *s2);
 void				ft_unit_vector(float *a, float *unit_vector);
 char				*ft_strtrim(char const *s1, char const *set);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
-int				ft_memcmp(const void *s1, const void *s2, size_t n);
+int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t len);
-int				ft_strncmp(const char *s1, const char *s2, size_t n);
+int					ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 float				ft_newxy(float orig_x, float orig_z, float angle_rad);
@@ -78,6 +78,8 @@ float				ft_newyz(float orig_x, float orig_y, float angle_rad);
 float				ft_newzx(float orig_y, float orig_z, float angle_rad);
 float				ft_newzy(float orig_x, float orig_z, float angle_rad);
 const char			*auto_detect_base_if_zero(const char *str, int *base);
+char				*ft_strjoin_3(const char *s1, const char *s2,
+						const char *s3);
 
 void				ft_normalized_cross_product(float *a, float *b,
 						float *cross_product);
