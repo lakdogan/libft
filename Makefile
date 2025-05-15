@@ -90,7 +90,8 @@ LIBFT_CFILES := \
 	ft_isspace.c \
 	ft_strndup.c \
 	ft_sqrt.c \
-	ft_strtoll.c
+	ft_strtoll.c \
+	ft_atol.c
 
 FT_PRINTF_CFILES := \
 	/ft_printf.c \
