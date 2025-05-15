@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./../../inc/push_swap.h"
+#include "./../inc/libft.h"
 
 /**
  * @brief Auto-detects the numerical base from a string prefix.
