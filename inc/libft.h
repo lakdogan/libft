@@ -78,6 +78,7 @@ float				ft_newyz(float orig_x, float orig_y, float angle_rad);
 float				ft_newzx(float orig_y, float orig_z, float angle_rad);
 float				ft_newzy(float orig_x, float orig_z, float angle_rad);
 const char			*auto_detect_base_if_zero(const char *str, int *base);
+void				*ft_realloc(void *ptr, size_t new_size, size_t *allocated_size);
 char				*ft_strjoin_3(const char *s1, const char *s2,
 						const char *s3);
 
