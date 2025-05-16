@@ -13,6 +13,54 @@
 #include "../inc/libft.h"
 
 /**
+ * @brief Checks the result of a memory allocation 
+ * and prints an error if it failed.
+ *
+ * This function verifies whether a pointer 
+ * returned from a memory allocation
+ * function (e.g., malloc, calloc) is NULL.
+ * If it is NULL, it prints a system
+ * error message using perror and returns NULL.
+ *
+ * @param ptr Pointer returned by a memory allocation function.
+ * @return The same pointer if allocation succeeded, 
+ * or NULL if it failed.
+ */
+void	*check_memory_allocation(void *ptr)
+{
+	if (!ptr)
+	{
+		perror("Memory allocation failed!");
+		return (NULL);
+	}
+	return (ptr);
+}
+
+/**
+ * @brief Checks the result of a memory reallocation 
+ * and prints an error if it failed.
+ *
+ * This function verifies whether a pointer returned
+ * from a memory reallocation
+ * function (e.g., realloc) is NULL. If it is NULL,
+ * it prints a system
+ * error message using perror and returns NULL.
+ *
+ * @param ptr Pointer returned by a memory reallocation function.
+ * @return The same pointer if reallocation succeeded,
+ * or NULL if it failed.
+ */
+void	*check_memory_reallocation(void *ptr)
+{
+	if (!ptr)
+	{
+		perror("Failed to reallocate memory!");
+		return (NULL);
+	}
+	return (ptr);
+}
+
+/**
  * @brief Validates the new size and frees memory if the size is zero.
  *
  * This function checks if the new memory size is zero. If so, it frees
@@ -20,8 +68,10 @@
  *
  * @param ptr Pointer to the currently allocated memory.
  * @param new_size The requested new size of the memory block.
- * @param allocated_size Pointer to the variable holding the current allocated size.
- * @return 1 if new_size is non-zero and reallocation should proceed, 0 if memory was freed.
+ * @param allocated_size Pointer to the variable 
+ * holding the current allocated size.
+ * @return 1 if new_size is non-zero and 
+ * reallocation should proceed, 0 if memory was freed.
  */
 static int	validate_size_and_free(void *ptr, size_t new_size,
 		size_t *allocated_size)
@@ -36,9 +86,11 @@ static int	validate_size_and_free(void *ptr, size_t new_size,
 }
 
 /**
- * @brief Copies memory content from old pointer to new pointer and frees the old memory.
+ * @brief Copies memory content from old pointer 
+ * to new pointer and frees the old memory.
  *
- * Copies the minimum of `new_size` and `allocated_size` bytes from `ptr` to `new_ptr`,
+ * Copies the minimum of `new_size` and 
+ * `allocated_size` bytes from `ptr` to `new_ptr`,
  * and then frees the old pointer.
  *
  * @param new_ptr Pointer to the newly allocated memory.
@@ -60,15 +112,19 @@ static void	copy_memory_and_free(void *new_ptr, void *ptr, size_t new_size,
 }
 
 /**
- * @brief Custom realloc implementation that resizes a memory block with bookkeeping.
+ * @brief Custom realloc implementation that 
+ * resizes a memory block with bookkeeping.
  *
- * Handles NULL pointers, zero-size reallocations, and copies old data into the new block.
+ * Handles NULL pointers, zero-size reallocations,
+ * and copies old data into the new block.
  * It also updates the `allocated_size` to reflect the new memory size.
  *
  * @param ptr Pointer to the currently allocated memory (can be NULL).
  * @param new_size The requested size for the new memory block.
- * @param allocated_size Pointer to the variable tracking the currently allocated size.
- * @return Pointer to the newly allocated memory block, or NULL on failure or if new_size is 0.
+ * @param allocated_size Pointer to the variable
+ * tracking the currently allocated size.
+ * @return Pointer to the newly allocated memory block,
+ * or NULL on failure or if new_size is 0.
  */
 void	*ft_realloc(void *ptr, size_t new_size, size_t *allocated_size)
 {
