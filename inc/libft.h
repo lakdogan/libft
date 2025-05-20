@@ -54,6 +54,7 @@ double				ft_sqrt(double x, double epsilon);
 char				*ft_strrchr(const char *s, int c);
 float				ft_dot_product(float *a, float *b);
 char				**ft_split(char const *s, char del);
+char				*ft_safe_strjoin(char *s1, char *s2);
 char				*ft_strndup(const char *s, size_t n);
 void				*ft_calloc(size_t count, size_t size);
 void				*ft_memset(void *b, int c, size_t len);
