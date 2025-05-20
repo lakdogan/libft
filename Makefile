@@ -93,7 +93,8 @@ LIBFT_CFILES := \
 	ft_strtoll.c \
 	ft_atol.c \
 	ft_strjoin_three.c \
-	ft_realloc.c
+	ft_realloc.c \
+	ft_free_split.c
 
 FT_PRINTF_CFILES := \
 	/ft_printf.c \
