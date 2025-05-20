@@ -12,6 +12,19 @@
 
 #include "./../inc/libft.h"
 
+/**
+ * @brief Converts a string to a long integer.
+ *
+ * This function parses the given string `str` and converts it to a
+ * `long` value. It skips leading whitespace, handles optional '+' or '-',
+ * and processes numeric characters until a non-digit is encountered.
+ *
+ * @param str The input string to convert.
+ * @return The converted `long` value. Returns 0 if no digits are found.
+ *
+ * @note This function does not handle overflow or underflow. The behavior
+ *       is undefined if the result exceeds the range of `long`.
+ */
 long	ft_atol(const char *str)
 {
 	long	result;
