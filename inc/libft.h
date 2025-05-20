@@ -42,6 +42,7 @@ int					ft_atoi(const char *str);
 size_t				ft_strlen(const char *s);
 float				ft_getdeg(float radians);
 char				*ft_strdup(const char *s1);
+void				ft_free_split(char **split);
 void				ft_putnbr_fd(int n, int fd);
 void				*ft_bzero(void *s, size_t n);
 void				ft_putstr_fd(char *s, int fd);
