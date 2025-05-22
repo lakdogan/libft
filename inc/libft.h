@@ -61,6 +61,7 @@ void				*ft_memset(void *b, int c, size_t len);
 float				ft_vector_angle_rad(float *a, float *b);
 float				ft_vector_angle_deg(float *a, float *b);
 float				ft_tiltang(float height, float distance);
+int				ft_strcmp(const char *s1, const char *s2);
 float				ft_isometric_y(float x, float y, float z);
 void				ft_putchar_fd(char c, int file_descriptor);
 void				*ft_memchr(const void *s, int c, size_t n);
