@@ -38,7 +38,7 @@ This repository contains a custom C library implementation that re-creates a wid
   - Supports multiple file descriptors simultaneously  
   - Efficiently reads and buffers file content
 
-### Garbage Collector
+### garbage_collector
 - **Description:**  
   A comprehensive memory management system that automatically tracks and frees allocations.
 - **Features:**  
