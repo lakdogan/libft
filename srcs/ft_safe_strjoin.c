@@ -6,7 +6,7 @@
 /*   By: lakdogan <lakdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 20:48:49 by lakdogan          #+#    #+#             */
-/*   Updated: 2025/05/20 20:49:51 by lakdogan         ###   ########.fr       */
+/*   Updated: 2025/05/25 23:00:46 by lakdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
  *
  * @param s1 The first string to join. Can be NULL.
  * @param s2 The second string to join. Must not be NULL.
- * @return A newly allocated string containing the concatenation of `s1` and `s2`.
+ * @return A newly allocated string containing 
+ * the concatenation of `s1` and `s2`.
  *         Returns NULL if memory allocation fails.
  *
  * @note The returned string must be freed by the caller.

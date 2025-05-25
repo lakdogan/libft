@@ -6,21 +6,23 @@
 #    By: lakdogan <lakdogan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/09 22:03:15 by lakdogan          #+#    #+#              #
-#    Updated: 2025/02/20 17:35:23 by lakdogan         ###   ########.fr        #
+#    Updated: 2025/05/25 21:29:47 by lakdogan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # compiler and flags
 CC := cc
 CFLAGS := -Wall -Wextra -Werror $(INCLUDES)
-INCLUDES := -I./inc -I./ft_printf -I./get_next_line
+INCLUDES := -I./inc -I./ft_printf -I./get_next_line -I./garbage_collector/inc
 MAKEFLAGS += -s
 
 # paths
-SRCSDIR := srcs/
-FTPFDIR := ft_printf/
-GNLDIR := get_next_line/
-OFILESDIR := ofiles/
+SRCS_DIR := srcs/
+FT_PRINTF_DIR := ft_printf/
+GET_NEXT_LINE_DIR := get_next_line/
+GARBAGE_COLLECTOR_DIR := garbage_collector/
+GARBAGE_COLLECTOR_SRCS_DIR := $(GARBAGE_COLLECTOR_DIR)/srcs
+OBJECT_FILES_DIR := ofiles/
 
 # files
 LIBFT_CFILES := \
@@ -99,7 +101,7 @@ LIBFT_CFILES := \
 	ft_strcmp.c
 
 FT_PRINTF_CFILES := \
-	/ft_printf.c \
+	ft_printf.c \
 	print/ft_print_char.c \
 	print/ft_print_hex.c \
 	print/ft_print_id.c \
@@ -112,10 +114,35 @@ GET_NEXT_LINE_CFILES := \
 	get_next_line.c \
 	get_next_line_bonus.c
 
+GARBAGE_COLLECTOR_CFILES := \
+	gc_calloc.c \
+	gc_core.c \
+	gc_expand.c \
+	gc_free.c \
+	gc_itoa.c \
+	gc_lstadd_back.c \
+	gc_lstmap.c \
+	gc_lstnew.c \
+	gc_malloc.c \
+	gc_memcpy.c \
+	gc_realloc_array.c \
+	gc_realloc.c \
+	gc_register.c \
+	gc_split.c \
+	gc_strdup.c \
+	gc_strim.c \
+	gc_strjoin_3.c \
+	gc_strjoin.c \
+	gc_substr.c \
+	gc_utils.c \
+	hash_functions.c \
+	hash_operations.c 
+
 # paths to the object files
-LIBFT_OBJS = $(LIBFT_CFILES:%.c=$(OFILESDIR)srcs/%.o)
-FTPF_OBJS = $(FT_PRINTF_CFILES:%.c=$(OFILESDIR)ft_printf/%.o)
-GNL_OBJS = $(GET_NEXT_LINE_CFILES:%.c=$(OFILESDIR)get_next_line/%.o)
+LIBFT_OBJECTS = $(LIBFT_CFILES:%.c=$(OBJECT_FILES_DIR)srcs/%.o)
+FT_PRINTF_OBJECTS = $(FT_PRINTF_CFILES:%.c=$(OBJECT_FILES_DIR)ft_printf/%.o)
+GET_NEXT_LINE_OBJECTS = $(GET_NEXT_LINE_CFILES:%.c=$(OBJECT_FILES_DIR)get_next_line/%.o)
+GARBAGE_COLLECTOR_OBJECTS = $(GARBAGE_COLLECTOR_CFILES:%.c=$(OBJECT_FILES_DIR)garbage_collector/%.o)
 
 # libraryname
 NAME := libft_ftpf_gnl.a
@@ -128,7 +155,7 @@ check:
 	@echo "\033[38;5;11m🛠️  Checking build status... \033[0m"
 	@if [ -f $(NAME) ]; then \
 		CHANGES=false; \
-		for obj in $(LIBFT_OBJS) $(FTPF_OBJS) $(GNL_OBJS); do \
+		for obj in $(LIBFT_OBJECTS) $(FT_PRINTF_OBJECTS) $(GET_NEXT_LINE_OBJECTS) $(GARBAGE_COLLECTOR_OBJECTS); do \
 			if [ $$obj -nt $(NAME) ]; then \
 				CHANGES=true; \
 				break; \
@@ -144,38 +171,43 @@ check:
 	fi
 
 # Create the static library
-$(NAME): $(LIBFT_OBJS) $(FTPF_OBJS) $(GNL_OBJS)
+$(NAME): $(LIBFT_OBJECTS) $(FT_PRINTF_OBJECTS) $(GET_NEXT_LINE_OBJECTS) $(GARBAGE_COLLECTOR_OBJECTS)
 	@ar -rcs $@ $^
 	@echo "\033[38;5;46m⏳ Build process in action...\033[0m"
 	@echo "\033[38;5;15m╔══════════════════════════════════════════════════════════════╗\033[0m"
-	@echo "\033[38;5;10m📁  Directory: \033[0m\033[38;5;2m$(OFILESDIR)\033[0m"
+	@echo "\033[38;5;10m📁  Directory: \033[0m\033[38;5;2m$(OBJECT_FILES_DIR)\033[0m"
 	@echo "\033[38;5;15m╚══════════════════════════════════════════════════════════════╝\033[0m"
 	@echo "\033[38;5;196m🔧  Object Files Summary:\033[0m"
-	@echo "\033[38;5;2m   ➤ LIBFT:        \033[0m$(words $(LIBFT_OBJS)) objects created."
-	@echo "\033[38;5;2m   ➤ FT_PRINTF:    \033[0m$(words $(FTPF_OBJS)) objects created."
-	@echo "\033[38;5;2m   ➤ GET_NEXT_LINE: \033[0m$(words $(GNL_OBJS)) objects created."
+	@echo "\033[38;5;2m   ➤ LIBFT:        \033[0m$(words $(LIBFT_OBJECTS)) objects created."
+	@echo "\033[38;5;2m   ➤ FT_PRINTF:    \033[0m$(words $(FT_PRINTF_OBJECTS)) objects created."
+	@echo "\033[38;5;2m   ➤ GET_NEXT_LINE: \033[0m$(words $(GET_NEXT_LINE_OBJECTS)) objects created."
+	@echo "\033[38;5;2m   ➤ GARBAGE_COLLECTOR: \033[0m$(words $(GARBAGE_COLLECTOR_OBJECTS)) objects created."
 	@echo "\033[38;5;46m🧩 Combining all parts into the final library... \033[0m"
 	@echo "\033[38;5;4m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 	@echo "\033[38;5;46m🎉  $(NAME) file successfully created! 🎉 \033[0m"
 	@echo "\033[38;5;4m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 
 # Compile object files from source
-$(OFILESDIR)srcs/%.o: $(SRCSDIR)%.c
+$(OBJECT_FILES_DIR)srcs/%.o: $(SRCS_DIR)%.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(OFILESDIR)ft_printf/%.o: $(FTPFDIR)%.c
+$(OBJECT_FILES_DIR)ft_printf/%.o: $(FT_PRINTF_DIR)%.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(OFILESDIR)get_next_line/%.o: $(GNLDIR)%.c
+$(OBJECT_FILES_DIR)get_next_line/%.o: $(GET_NEXT_LINE_DIR)%.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJECT_FILES_DIR)garbage_collector/%.o: $(GARBAGE_COLLECTOR_SRCS_DIR)/%.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Clean object files
 clean:
-	@if [ -d $(OFILESDIR) ]; then \
-		rm -rf $(OFILESDIR); \
+	@if [ -d $(OBJECT_FILES_DIR) ]; then \
+		rm -rf $(OBJECT_FILES_DIR); \
 		echo "\033[38;5;196m🧹 Cleaning up object files... \033[0m"; \
 		echo "\033[38;5;46m💨 Cleaning completed.\033[0m"; \
 	else \

@@ -6,7 +6,7 @@
 /*   By: lakdogan <lakdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:59:19 by lakdogan          #+#    #+#             */
-/*   Updated: 2025/05/15 21:43:47 by lakdogan         ###   ########.fr       */
+/*   Updated: 2025/05/25 23:00:07 by lakdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void				*ft_memset(void *b, int c, size_t len);
 float				ft_vector_angle_rad(float *a, float *b);
 float				ft_vector_angle_deg(float *a, float *b);
 float				ft_tiltang(float height, float distance);
-int				ft_strcmp(const char *s1, const char *s2);
+int					ft_strcmp(const char *s1, const char *s2);
 float				ft_isometric_y(float x, float y, float z);
 void				ft_putchar_fd(char c, int file_descriptor);
 void				*ft_memchr(const void *s, int c, size_t n);
@@ -81,7 +81,8 @@ float				ft_newyz(float orig_x, float orig_y, float angle_rad);
 float				ft_newzx(float orig_y, float orig_z, float angle_rad);
 float				ft_newzy(float orig_x, float orig_z, float angle_rad);
 const char			*auto_detect_base_if_zero(const char *str, int *base);
-void				*ft_realloc(void *ptr, size_t new_size, size_t *allocated_size);
+void				*ft_realloc(void *ptr, size_t new_size,
+						size_t *allocated_size);
 char				*ft_strjoin_3(const char *s1, const char *s2,
 						const char *s3);
 
