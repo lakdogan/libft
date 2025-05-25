@@ -19,7 +19,6 @@
  * @param size Size in bytes to allocate
  * @return void* Pointer to allocated memory, or NULL if allocation fails
  */
-// In gc_malloc.c
 void	*gc_malloc(t_gc *gc, size_t size)
 {
 	void	*ptr;
