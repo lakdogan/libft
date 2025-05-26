@@ -6,7 +6,7 @@
 /*   By: lakdogan <lakdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 18:08:26 by lakdogan          #+#    #+#             */
-/*   Updated: 2025/05/25 22:41:19 by lakdogan         ###   ########.fr       */
+/*   Updated: 2025/05/27 00:12:49 by lakdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,17 @@
  * @param size Size in bytes to allocate
  * @return void* Pointer to allocated memory, or NULL if allocation fails
  */
+// In gc_malloc.c
 void	*gc_malloc(t_gc *gc, size_t size)
 {
 	void	*ptr;
+	size_t	actual_size;
 
-	if (size == 0)
-		return (NULL);
-	ptr = malloc(size);
+	if (size > 0)
+		actual_size = size;
+	else
+		actual_size = 1;
+	ptr = malloc(actual_size);
 	if (ptr && gc)
 	{
 		if (gc->count >= gc->capacity)
@@ -38,11 +42,9 @@ void	*gc_malloc(t_gc *gc, size_t size)
 				return (NULL);
 			}
 		}
-		gc_register(gc, ptr, size);
+		gc_register(gc, ptr, actual_size);
 	}
-	else if (!ptr && size > 0)
-	{
+	else if (!ptr)
 		ft_putstr_fd("GC error: Failed to allocate memory\n", STDERR_FILENO);
-	}
 	return (ptr);
 }

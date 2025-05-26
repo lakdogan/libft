@@ -6,7 +6,7 @@
 #    By: lakdogan <lakdogan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/09 22:03:15 by lakdogan          #+#    #+#              #
-#    Updated: 2025/05/25 21:29:47 by lakdogan         ###   ########.fr        #
+#    Updated: 2025/05/26 23:06:42 by lakdogan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -115,20 +115,27 @@ GET_NEXT_LINE_CFILES := \
 	get_next_line_bonus.c
 
 GARBAGE_COLLECTOR_CFILES := \
+	gc_3d_arrays.c \
 	gc_calloc.c \
 	gc_core.c \
 	gc_expand.c \
 	gc_free.c \
+	gc_int_array.c \
+	gc_int_matrix.c \
 	gc_itoa.c \
+	gc_lst_from_array.c \
 	gc_lstadd_back.c \
+	gc_lstadd_front.c \
 	gc_lstmap.c \
 	gc_lstnew.c \
+	gc_lstsub.c \
 	gc_malloc.c \
 	gc_memcpy.c \
 	gc_realloc_array.c \
 	gc_realloc.c \
 	gc_register.c \
-	gc_split.c \
+	gc_str_array.c \
+	gc_str_array.c \
 	gc_strdup.c \
 	gc_strim.c \
 	gc_strjoin_3.c \

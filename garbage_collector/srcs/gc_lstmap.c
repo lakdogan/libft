@@ -6,7 +6,7 @@
 /*   By: lakdogan <lakdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 17:52:47 by lakdogan          #+#    #+#             */
-/*   Updated: 2025/05/25 22:41:05 by lakdogan         ###   ########.fr       */
+/*   Updated: 2025/05/27 00:13:22 by lakdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@
  *
  * @param gc Pointer to the garbage collector
  * @param lst List to map
- * @param f Function to apply to each element's content
+ *
+ * @param f Function to apply to each element's 
+ * content (receives GC and content)
  * @param del Function to delete content if an error occurs
  * @return t_list* New list with transformed content,
-	or NULL if allocation fails
+ *	or NULL if allocation fails
  */
-t_list	*gc_lstmap(t_gc *gc, t_list *lst, void *(*f)(void *),
+t_list	*gc_lstmap(t_gc *gc, t_list *lst, void *(*f)(t_gc *, void *),
 		void (*del)(void *))
 {
 	t_list	*new_list;
@@ -36,7 +38,7 @@ t_list	*gc_lstmap(t_gc *gc, t_list *lst, void *(*f)(void *),
 	new_list = NULL;
 	while (lst)
 	{
-		new_elem = gc_lstnew(gc, f(lst->content));
+		new_elem = gc_lstnew(gc, f(gc, lst->content));
 		if (!new_elem)
 		{
 			ft_lstclear(&new_list, del);
