@@ -39,33 +39,80 @@ This repository contains a custom C library implementation that re-creates a wid
   - Efficiently reads and buffers file content
 
 ### Garbage Collector
+
 - **Description:**  
-  A comprehensive memory management system that automatically tracks and frees allocations.
-- **Features:**  
-  - Hash table-based pointer tracking for O(1) average lookup time
-  - Wrapped memory allocation functions (malloc, calloc, realloc)
-  - String and list operations with automatic memory management
-  - Selective freeing of individual allocations
-  - Batch cleanup of all managed memory
-  - Memory usage statistics and tracking
-- **Highlights:**  
-  - Prevents memory leaks in complex applications
-  - Simplifies memory management with a single cleanup call
-  - High performance with over 10,000 allocations handled efficiently
+  A comprehensive memory management system that automatically tracks and frees allocations, eliminating memory leaks and simplifying memory management in C.
+
+- **Core Features:**  
+  - Hash table-based pointer tracking with O(1) average lookup time
   - Thread-safe design through non-global implementation
+  - Automatic expansion of tracking arrays
+  - Complete memory lifecycle management
+  - Zero-byte allocation handling
+
+- **Memory Management Functions:**
+  - Basic allocation: `gc_malloc`, `gc_calloc`, `gc_realloc`, `gc_free`
+  - Memory operations: `gc_register`, `gc_memcpy`
+  - Memory information: `is_valid_block`, `get_block_size`, `gc_get_total_memory`
+
+- **String Operations:**
+  - String creation: `gc_strdup`, `gc_substr`, `gc_itoa`
+  - String manipulation: `gc_strjoin`, `gc_strjoin_3`, `gc_strtrim`
+  - String parsing: `gc_split`
+
+- **Array Management:**
+  - 1D arrays: `gc_int_array_create`, `gc_int_array_dup`, `gc_str_array_create`, `gc_str_array_dup`
+  - 2D arrays: `gc_int_matrix_create`
+  - 3D arrays: `gc_int_3d_create`, `gc_str_3d_create`
+  - Array resizing: `gc_realloc_array`
+
+- **List Operations:**
+  - Node management: `gc_lstnew`, `gc_lstadd_back`, `gc_lstadd_front`
+  - List manipulation: `gc_lstdup`, `gc_lst_from_array`, `gc_lstsub`, `gc_lstmap`
+
+- **Generic Structure Handling:**
+  - Structure operations: `gc_alloc_struct`, `gc_duplicate_struct`, `gc_alloc_struct_array`
+
+- **Highlights:**  
+  - Eliminates memory leaks in complex applications
+  - Simplifies memory management with a single cleanup call
+  - Handles complex nested data structures automatically
+  - High performance with over 10,000 allocations handled efficiently
+  - Extensively tested with comprehensive test suites
+  - Complete documentation for all functions
+
 - **Example Usage:**
   ```c
   // Create a garbage collector
   t_gc *gc = gc_create();
   
-  // Allocate memory that will be automatically tracked
+  // Basic memory operations
   char *str = gc_strdup(gc, "Hello World");
   int *numbers = gc_malloc(gc, 5 * sizeof(int));
   
-  // Use memory normally
-  numbers[0] = 42;
+  // Complex data structures
+  int **matrix = gc_int_matrix_create(gc, 3, 4);
+  matrix[0][0] = 42;
   
-  // Cleanup everything with a single call
+  // String operations
+  char *joined = gc_strjoin(gc, str, " and Goodbye!");
+  char **words = gc_split(gc, joined, ' ');
+  
+  // Linked lists
+  t_list *list = NULL;
+  gc_lstadd_back(gc, &list, "first item");
+  gc_lstadd_back(gc, &list, "second item");
+  
+  // Custom structures
+  typedef struct s_point { int x, y, z; } t_point;
+  t_point *points = gc_alloc_struct_array(gc, 10, sizeof(t_point));
+  points[0].x = 10;
+  
+  // Get memory usage statistics
+  size_t memory_used = gc_get_total_memory(gc);
+  printf("Current memory usage: %zu bytes\n", memory_used);
+  
+  // Clean everything up with a single call
   gc_cleanup(&gc);
 
 ---
