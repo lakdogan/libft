@@ -6,7 +6,7 @@
 /*   By: lakdogan <lakdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 17:49:25 by lakdogan          #+#    #+#             */
-/*   Updated: 2025/05/26 23:37:51 by lakdogan         ###   ########.fr       */
+/*   Updated: 2025/05/27 18:04:16 by lakdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,6 +163,23 @@
  * int **matrix = gc_int_matrix_create(gc, 3, 4); // 3 rows, 4 columns
  * matrix[0][0] = 1;   // Top-left element
  * matrix[2][3] = 100; // Bottom-right element
+ *
+ * * // 2D integer matrix
+ * int **matrix = gc_int_matrix_create(gc, 3, 4); // 3 rows, 4 columns
+ * matrix[0][0] = 1;   // Top-left element
+ * matrix[2][3] = 100; // Bottom-right element
+ *
+ * // 2D string matrix
+ * char ***str_matrix = gc_str_matrix_create(gc, 3, 4); // 3 rows, 4 columns
+ * str_matrix[0][0] = gc_strdup(gc, "Hello");
+ * str_matrix[0][1] = gc_strdup(gc, "World");
+ * str_matrix[1][0] = gc_strdup(gc, "This");
+ * str_matrix[1][1] = gc_strdup(gc, "is");
+ * str_matrix[1][2] = gc_strdup(gc, "a");
+ * str_matrix[1][3] = gc_strdup(gc, "test");
+ *
+ * // Copy the string matrix
+ * char ***str_matrix_copy = gc_str_matrix_dup(gc, str_matrix);
  *
  * // 3D integer array
  * int ***cube = gc_int_3d_create(gc, 2, 3, 4);
@@ -433,6 +450,9 @@ char					**gc_split(t_gc *gc, const char *s, char c);
 char					*gc_itoa(t_gc *gc, int n);
 char					**gc_str_array_dup(t_gc *gc, char **src);
 char					**gc_str_array_create(t_gc *gc, size_t size);
+char					***gc_str_matrix_create(t_gc *gc, size_t rows,
+							size_t cols);
+char					***gc_str_matrix_dup(t_gc *gc, char ***src);
 
 // 4. Integer array functions
 

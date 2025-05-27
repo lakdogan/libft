@@ -62,7 +62,7 @@ This repository contains a custom C library implementation that re-creates a wid
 
 - **Array Management:**
   - 1D arrays: `gc_int_array_create`, `gc_int_array_dup`, `gc_str_array_create`, `gc_str_array_dup`
-  - 2D arrays: `gc_int_matrix_create`
+  - 2D arrays: `gc_int_matrix_create`, `gc_str_matrix_create`, `gc_str_matrix_dup`
   - 3D arrays: `gc_int_3d_create`, `gc_str_3d_create`
   - Array resizing: `gc_realloc_array`
 
