@@ -6,7 +6,7 @@
 #    By: lakdogan <lakdogan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/09 22:03:15 by lakdogan          #+#    #+#              #
-#    Updated: 2025/05/27 18:02:12 by lakdogan         ###   ########.fr        #
+#    Updated: 2025/05/28 21:46:02 by lakdogan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -134,6 +134,7 @@ GARBAGE_COLLECTOR_CFILES := \
 	gc_realloc_array.c \
 	gc_realloc.c \
 	gc_register.c \
+	gc_safe_strjoin.c \
 	gc_str_array.c \
 	gc_str_matrix.c \
 	gc_strdup.c \
