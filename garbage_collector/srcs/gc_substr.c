@@ -6,7 +6,7 @@
 /*   By: lakdogan <lakdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 17:40:25 by lakdogan          #+#    #+#             */
-/*   Updated: 2025/05/25 22:42:24 by lakdogan         ###   ########.fr       */
+/*   Updated: 2025/05/28 23:30:20 by lakdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ char	*gc_substr(t_gc *gc, const char *s, unsigned int start, size_t len)
 
 	str = ft_substr(s, start, len);
 	if (str)
-		gc_register(gc, str, ft_strlen(str) + NULL_TERMINATOR);
+		gc_register(gc, str, ft_strlen(str) + NULL_TERMINATOR_SIZE);
 	return (str);
 }

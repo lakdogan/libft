@@ -6,7 +6,7 @@
 /*   By: lakdogan <lakdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 17:49:25 by lakdogan          #+#    #+#             */
-/*   Updated: 2025/05/28 21:45:39 by lakdogan         ###   ########.fr       */
+/*   Updated: 2025/05/28 23:27:09 by lakdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -347,7 +347,7 @@
 # define GC_INITIAL_CAPACITY 1000
 # define GC_GROWTH_FACTOR 2
 # define GC_NOT_FOUND SIZE_MAX
-# define NULL_TERMINATOR 1
+# define NULL_TERMINATOR_SIZE 1
 
 /**
  * @brief Hash table entry structure
