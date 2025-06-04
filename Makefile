@@ -120,6 +120,7 @@ GARBAGE_COLLECTOR_CFILES := \
 	gc_core.c \
 	gc_expand.c \
 	gc_free.c \
+	gc_generic.c \
 	gc_int_array.c \
 	gc_int_matrix.c \
 	gc_itoa.c \
