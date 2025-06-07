@@ -6,7 +6,7 @@
 /*   By: lakdogan <lakdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 19:47:36 by lakdogan          #+#    #+#             */
-/*   Updated: 2025/02/20 18:30:36 by lakdogan         ###   ########.fr       */
+/*   Updated: 2025/06/07 21:53:46 by lakdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	const char	*s_s1;
 	const char	*s_s2;
 
+	if (!s1)
+		s1 = "";
+	if (!s2)
+		s2 = "";
 	s_s1 = s1;
 	while (*s1)
 		s1++;
