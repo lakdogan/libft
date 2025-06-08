@@ -6,7 +6,7 @@
 #    By: lakdogan <lakdogan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/09 22:03:15 by lakdogan          #+#    #+#              #
-#    Updated: 2025/05/28 21:46:02 by lakdogan         ###   ########.fr        #
+#    Updated: 2025/06/08 11:28:58 by lakdogan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,7 +98,8 @@ LIBFT_CFILES := \
 	ft_realloc.c \
 	ft_free_split.c \
 	ft_safe_strjoin.c \
-	ft_strcmp.c
+	ft_strcmp.c \
+	ft_strarr_len.c \
 
 FT_PRINTF_CFILES := \
 	ft_printf.c \

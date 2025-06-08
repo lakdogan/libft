@@ -6,7 +6,7 @@
 /*   By: lakdogan <lakdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:59:19 by lakdogan          #+#    #+#             */
-/*   Updated: 2025/05/25 23:00:07 by lakdogan         ###   ########.fr       */
+/*   Updated: 2025/06/08 11:28:33 by lakdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ long				ft_atol(const char *str);
 int					ft_atoi(const char *str);
 size_t				ft_strlen(const char *s);
 float				ft_getdeg(float radians);
+size_t				ft_strarr_len(char **arr);
 char				*ft_strdup(const char *s1);
 void				ft_free_split(char **split);
 void				ft_putnbr_fd(int n, int fd);
